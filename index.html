@@ -11,7 +11,7 @@
         integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
     <link rel="stylesheet" href="https://unpkg.com/@vuepic/vue-datepicker@latest/dist/main.css">
     <title>停車統計</title>
-  <script type="module" crossorigin src="/web-layout-training-vite/assets/index-6d02ec77.js"></script>
+  <script type="module" crossorigin src="/web-layout-training-vite/assets/index-e2ee55c9.js"></script>
   <link rel="stylesheet" href="/web-layout-training-vite/assets/index-53ab8f8e.css">
 </head>
 
@@ -98,11 +98,14 @@
                             <button type="submit" class="btn btn-success" @click="searchFlowDate(searchFlowDateData)">
                                 按日搜尋
                             </button>
+                            <button type="button" class="btn btn-outline-success mb-1 ml-auto"
+                                @click="flowToExcel('xlsx')">匯出報表
+                            </button>
                         </div>
                         <div class="isLoading d-flex justify-content-center" v-if="isLoading">
                             <img src="/web-layout-training-vite/assets/loading-9d9a33df.svg" alt="loading">
                         </div>
-                        <div class="table-responsive flowMonthTable d-none">
+                        <div class="table-responsive flowMonthTable d-none" id="flowMonthTable">
                             <table class="table table-hover table-bordered text-center">
                                 <thead>
                                     <tr class="border-b">
@@ -133,7 +136,7 @@
                             </table>
                         </div>
 
-                        <div class="table-responsive flowDateTable d-none">
+                        <div class="table-responsive flowDateTable d-none" id="flowDateTable">
                             <table class="table table-hover table-bordered text-center">
                                 <thead>
                                     <tr class="border-b">
