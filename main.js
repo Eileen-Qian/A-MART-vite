@@ -236,7 +236,7 @@ const app = Vue.createApp({
             let wb = XLSX.utils.table_to_book(document.querySelector('#transactionDetailsTable') ,xlsxParam);
             const wbout = XLSX.write(wb, {booklype: 'xlsx', bookSST: true , type : 'array' });
             try{
-                FileSaver.saveAs( new Blob([ wbout ], { type: 'application/octet-stream'}), '交易明細報表.xlsx');
+                FileSaver.saveAs( new Blob([ wbout ], { type: 'application/octet-stream'}), `${this.searchTransactionDetailsData.Time} 交易明細報表.xlsx`);
             }catch  (e){
                 if  (typeof console !== undefined) {
                     console.log(e,  wbout);
@@ -280,7 +280,7 @@ const app = Vue.createApp({
             let wb = XLSX.utils.table_to_book(document.querySelector('#transactionStatisticTable') ,xlsxParam);
             const wbout = XLSX.write(wb, {booklype: 'xlsx', bookSST: true , type : 'array' });
             try{
-                FileSaver.saveAs( new Blob([ wbout ], { type: 'application/octet-stream'}), '交易統計報表.xlsx');
+                FileSaver.saveAs( new Blob([ wbout ], { type: 'application/octet-stream'}), `${this.searchTransactionStatisticsData.startTime} ~ ${this.searchTransactionStatisticsData.endTime} 交易統計報表.xlsx`);
             }catch  (e){
                 if  (typeof console !== undefined) {
                     console.log(e,  wbout);
