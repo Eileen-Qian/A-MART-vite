@@ -187,6 +187,36 @@ const app = Vue.createApp({
                     : cantFindArea.classList.add('block');
                 })
         },
+        // 時段流量 - 匯出報表
+        flowToExcel(){
+            // 匯出時段流量月報表
+            if (flowMonthTable.classList[2] == 'block'){
+                let xlsxParam = { raw: true };
+                let wb = XLSX.utils.table_to_book(document.querySelector('#flowMonthTable') ,xlsxParam);
+                const wbout = XLSX.write(wb, {booklype: 'xlsx', bookSST: true , type : 'array' });
+                try{
+                    FileSaver.saveAs( new Blob([ wbout ], { type: 'application/octet-stream'}), `${this.searchFlowMonthData} 時段流量報表.xlsx`);
+                }catch  (e){
+                    if  (typeof console !== undefined) {
+                        console.log(e,  wbout);
+                    }
+                }
+                return wbout
+            // 匯出時段流量日報表
+            } else if (flowDateTable.classList[2] == 'block'){
+                let xlsxParam = { raw: true };
+                let wb = XLSX.utils.table_to_book(document.querySelector('#flowDateTable') ,xlsxParam);
+                const wbout = XLSX.write(wb, {booklype: 'xlsx', bookSST: true , type : 'array' });
+                try{
+                    FileSaver.saveAs( new Blob([ wbout ], { type: 'application/octet-stream'}), `${this.searchFlowDateData} 時段流量報表.xlsx`);
+                }catch  (e){
+                    if  (typeof console !== undefined) {
+                        console.log(e,  wbout);
+                    }
+                }
+                return wbout
+            };
+        },
         // 交易明細
         // 交易明細 - 當天為電動車的資料
         isToday(searchTransactionDetailsData) {

@@ -79,11 +79,14 @@
                             <button type="submit" class="btn btn-success" @click="searchFlowDate(searchFlowDateData)">
                                 按日搜尋
                             </button>
+                            <button type="button" class="btn btn-outline-success mb-1 ml-auto"
+                                @click="flowToExcel('xlsx')">匯出報表
+                            </button>
                         </div>
                         <div class="isLoading d-flex justify-content-center" v-if="isLoading">
                             <img src="../assets/images/loading.svg" alt="loading">
                         </div>
-                        <div class="table-responsive flowMonthTable d-none">
+                        <div class="table-responsive flowMonthTable d-none" id="flowMonthTable">
                             <table class="table table-hover table-bordered text-center">
                                 <thead>
                                     <tr class="border-b">
@@ -114,7 +117,7 @@
                             </table>
                         </div>
 
-                        <div class="table-responsive flowDateTable d-none">
+                        <div class="table-responsive flowDateTable d-none" id="flowDateTable">
                             <table class="table table-hover table-bordered text-center">
                                 <thead>
                                     <tr class="border-b">
