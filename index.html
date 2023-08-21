@@ -341,7 +341,7 @@
                         aria-labelledby="nav-transactionDetails-tab">
                         <div class="d-flex mb-2 align-items-center">
                             <input type="date" class="pe-3 me-2" v-model="searchTransactionDetailsData.Time">
-                            <input type="checkbox" name="isElectric" id="isElectric" checked class="me-2"
+                            <input type="checkbox" name="isElectric" id="isElectric" checked class="me-2" disabled
                                 v-model="searchTransactionDetailsData.isElectric">電動車
                             <button type="submit" class="btn btn-success ml-3"
                                 @click="searchTransactionDetails(searchTransactionDetailsData)">
@@ -417,7 +417,7 @@
                         <div class="d-flex mb-2 align-items-center">
                             <input type="date" class="pe-3 me-2" v-model="searchTransactionStatisticsData.startTime">
                             <input type="date" class="pe-3 me-2" v-model="searchTransactionStatisticsData.endTime">
-                            <input type="checkbox" name="isElectric" id="isElectric" checked class="me-2"
+                            <input type="checkbox" name="isElectric" id="isElectric" checked class="me-2" disabled
                                 v-model="searchTransactionStatisticsData.isElectric">電動車
                             <button type="submit" class="btn btn-success ms-3"
                                 @click="searchTransactionStatistic(searchTransactionStatisticsData)">
